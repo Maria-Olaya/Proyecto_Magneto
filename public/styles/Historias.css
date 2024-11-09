@@ -1,0 +1,213 @@
+/*historias*/
+
+/* Pantalla completa */
+.pantalla-completa {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.historia-completa {
+    position: relative;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    width: 30vw; /* Ancho del 30% de la pantalla */
+    max-width: 400px; /* Máximo de 400px para mantener el formato */
+    height: 90vh; /* Ocupa el 90% de la altura de la pantalla */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navegacion {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+/* Perfil completo */
+.usuario-perfil-completo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+}
+
+.nombre-usuario-completo {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #333;
+    text-align: center; /* Centrar texto */
+}
+
+.texto-completo {
+    margin: 20px 0;
+    font-size: 16px;
+    color: #555;
+    max-height: 150px;
+}
+
+/* Historias */
+.historias-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: auto; /* Cambiado a auto para que se ajuste a su contenido */
+    min-height: 400px; /* Altura mínima para mostrar historias */
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Evita que el contenido se desborde */
+}
+
+.historias-container:hover {
+    transform: translateY(-3px);
+}
+
+.historias {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Permite que la lista de historias sea desplazable */
+    padding: 10px;
+    max-height: 300px; /* Ajusta la altura máxima según sea necesario */
+    height: 100%; /* Asegúrate de que ocupe el espacio disponible */
+}
+
+.historia {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Añade efecto de transformación */
+    border-radius: 10px;
+    border: 1px solid transparent; /* Bordes iniciales invisibles */
+}
+
+.historia:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.02); /* Efecto de escala al pasar el cursor */
+}
+
+.preview {
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+}
+
+.usuario-perfil {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    margin-right: 10px;
+    transition: transform 0.3s; /* Añade efecto de transformación */
+}
+
+.usuario-perfil:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el cursor */
+}
+
+.agregar-publicacion {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.agregar-publicacion:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+/* Sección de historias */
+.stories {
+    width: 300px; /* Aumentar el ancho */
+    padding: 15px; /* Aumentar el padding si lo deseas */
+    background-color: transparent; /* Eliminar el fondo blanco */
+    border-radius: 8px;
+}
+
+.stories h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.story {
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.story:hover {
+    transform: scale(1.05);
+}
+
+.reacciones {
+    display: none; /* Ocultar inicialmente las reacciones */
+}
+
+.pantalla-completa {
+    display: none; /* Ocultar por defecto */
+    position: fixed; /* Fijar posición */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro con transparencia */
+    justify-content: center; /* Centrar contenido */
+    align-items: center; /* Centrar contenido */
+    z-index: 1000; /* Asegurar que esté encima de otros elementos */
+}
+
+.historia-completa {
+    max-width: 90%; /* Limitar ancho para pantallas grandes */
+    max-height: 90%; /* Limitar altura para pantallas grandes */
+    overflow: hidden; /* Ocultar desbordamiento */
+    color: white; /* Color de texto */
+}
+
+.archivo-completo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1; /* El archivo ocupa todo el espacio vertical disponible */
+}
+
+.archivo-img, .archivo-video {
+    width: 80%; /* Tamaño ajustado al 80% del ancho disponible */
+    height: auto;
+    object-fit: contain; /* Mantiene las proporciones del archivo */
+}
+.historias-container {
+    margin-top: 20px; /* Espaciado para las historias */
+}

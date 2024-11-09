@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/navegacion.css">
+    <link rel="stylesheet" href="styles/construyendo.css"> <!-- Enlazamos un CSS para estilos generales -->
+</head>
+
+<body class="bg-feed">
+
+    <nav>
+        <div class="logo">
+            <h1>M TalentSync</h1>
+        </div>
+       <!--  <a href="feed.html">Feed</a> Feed con publicaciones generales  -->
+       <a href="feed.html" onclick="sessionStorage.setItem('tipoPublicacion', 'general')"> feed</a>
+        <a href="retos.html">Retos</a>    <!-- Feed con publicaciones de retos -->
+        <a href="ListaGrupos.html">Grupos</a>  <!-- Feed con publicaciones de grupos -->
+        <a href="chat.html">Chat</a>
+        <a id="perfilLink" href="#">Perfil</a> <!-- Enlace al perfil con ID para manipulación -->
+        <a href="https://www.magneto365.com/es">servicio de empleo</a>  
+    </nav>
+
+    <!-- Contenedor para la imagen cuadrada -->
+    <div class="image-container">
+        <img src="../uploads/Magny.jpg" alt="Imagen cuadrada" class="square-image">
+    </div>
+
+
+    <script src="js/obtenerURLPerfil.js"></script>
+    <script>
+        // Llama a la función después de que el DOM esté completamente cargado
+        document.addEventListener('DOMContentLoaded', () => {
+            obtenerIdDeSesion(); // Llama a la función para obtener el ID de sesión
+        });
+    </script>
+</body>
+</html>

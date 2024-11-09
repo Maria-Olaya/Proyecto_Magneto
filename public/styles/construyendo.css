@@ -1,0 +1,29 @@
+/* Estilos generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#navContainer {
+    flex-shrink: 0; /* El navContainer no cambia de tamaño */
+}
+
+/* Contenedor de la imagen cuadrada */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1; /* Toma el espacio restante debajo del nav */
+    background-color: #f0f0f0; /* Color de fondo opcional */
+}
+
+/* Imagen cuadrada */
+.square-image {
+    width: auto;
+    height: 100%; /* Ajusta la altura para ocupar el espacio restante */
+    max-width: 100vh; /* Limita el ancho para mantener la imagen cuadrada */
+    object-fit: contain; /* Ajuste sin expandirse ni distorsionarse */
+}

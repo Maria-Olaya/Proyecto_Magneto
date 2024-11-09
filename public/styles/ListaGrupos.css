@@ -1,0 +1,32 @@
+
+.reacciones {
+    display: none; /* Ocultar inicialmente las reacciones */
+}
+
+.grupo {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.grupo h3 {
+    margin: 0;
+}
+
+.grupo p {
+    margin: 5px 0;
+}
+
+.btn-unir {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-unir:hover {
+    background-color: #45a049;
+}

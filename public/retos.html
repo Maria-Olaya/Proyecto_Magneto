@@ -1,0 +1,123 @@
+<!-- retos.html-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/comentariosybotones.css">
+    <link rel="stylesheet" href="styles/Estilosgenerales.css">
+    <link rel="stylesheet" href="styles/navegacion.css">
+    <link rel="stylesheet" href="styles/publicaciones.css">
+    <title>M TalentSync</title>
+    <style>
+        .reacciones {
+            display: none; /* Ocultar inicialmente las reacciones */
+        }
+    </style>
+</head>
+
+<body class="bg-retos">
+
+    <nav>
+        <div class="logo">
+            <h1>M TalentSync</h1>
+        </div>
+        <!-- <a href="feed.html">Feed</a> -->
+        <a href="feed.html" onclick="sessionStorage.setItem('tipoPublicacion', 'general')"> feed</a>
+        <a href="retos.html">Retos</a>
+        <a href="ListaGrupos.html">Grupos</a>
+        <a href="chat.html">Chat</a>
+        <a href="perfil.html">Perfil</a>
+        <a href="https://www.magneto365.com/es">Servicio de empleo</a>
+        <a href="nuevaPublicacion.html" id="linkNuevaReto">Nueva Reto</a> 
+        <a href="nuevaPublicacion.html">Nueva Publicación</a>
+    </nav>
+
+      <!-- Incluir el template del nav -->
+    <div id="navContainer"></div>
+    <script src="js/navLoader.js"></script>
+    <script>
+        // Llamar a la función para cargar el template con los enlaces personalizados
+        cargarNav('<a href="nuevaPublicacion.html">Nuevo Reto</a>');
+    </script>
+        
+    
+    <script>
+        document.getElementById('navContainer').innerHTML = `
+            <div id="customLinks" class="customLinks"> <!-- Asegúrate de agregar la clase aquí -->
+                <a href="nuevaPublicacion.html">Nueva Publicación</a> <!-- Enlace específico para esta página -->
+            </div>
+        `;
+    </script>
+    
+    
+    <div class="container">
+        <div class="feed">
+            <h2>Publicaciones</h2>
+            <div id="lista-publicaciones"></div>
+        </div>
+
+    </div>
+
+    <script>
+        window.tipoPublicacion = 'reto'; // Cambia 'reto' por el tipo que desees usar
+
+        document.getElementById('linkNuevaReto').addEventListener('click', () => {
+            sessionStorage.setItem('tipoPublicacion', window.tipoPublicacion); // Almacena el tipo de publicación
+        });
+    </script>
+
+    <!-- Importar archivos JavaScript 
+    <script src="js/publicaciones.js"></script>-->
+    <script type="module" src="js/cargarPublicaciones.js"></script>
+
+    <script src="js/reacciones.js"></script>
+    <script src="js/comentarios.js"></script>
+    <script src="js/respuestas.js"></script>
+    <script>
+        // Llamada inicial para cargar publicaciones
+        cargarPublicaciones();
+
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                window.location.reload(); // Recargar la página al volver del historial
+            }
+        });
+        
+    </script>
+
+      
+<script>
+    const socket = new WebSocket('ws://localhost:3000');
+
+    socket.onopen = () => {
+        console.log('Conectado al servidor WebSocket');
+    };
+
+    socket.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        if (data.action === 'newPost') {
+            agregarPublicacionAlReto(data.post);
+        }
+    };
+
+    function agregarPublicacionAlReto(post) {
+        const lista = document.getElementById('lista-publicaciones');
+        const div = document.createElement('div');
+        div.className = 'publicacion';
+        div.innerHTML = `
+            <div class="perfil">
+                <img src="${post.foto_perfil}" alt="Foto de perfil" class="foto-perfil">
+                <strong>${post.nombre_usuario}</strong>
+            </div>
+            <p class="contenido">${post.contenido}</p>
+            ${post.archivo ? `<div class="archivo">${renderArchivo(post.archivo)}</div>` : ''}
+            <p><small>Publicado el: ${new Date(post.fecha_publicacion).toLocaleString()}</small></p>
+        `;
+        lista.prepend(div);
+    }
+
+</script>
+
+</body>
+</html>

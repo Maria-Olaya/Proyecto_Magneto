@@ -1,0 +1,68 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e9f7f9; /* Fondo suave */
+    display: flex;
+    min-height: 100vh; /* Asegura que el contenido ocupe toda la pantalla */
+    flex-direction: column; /* Para un diseño responsivo */
+}
+
+header {
+    background: linear-gradient(90deg, #007bff, #0056b3); /* Degradado de azul */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Para separar el contenido */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px; /* Tamaño de fuente */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+/* Indicador de archivo adjunto */
+.file-indicator {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+    border-radius: 5px;
+    color: #0c5460;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.reacciones {
+    display: none; /* Ocultar inicialmente las reacciones */
+}
+
+
+
+/* Fondo para el feed */
+.bg-feed {
+    background-image: url('../uploads/12backgenerall.jpg');
+    background-size: cover; /* Cambia "cover" a "contain" para que la imagen mantenga su tamaño original */
+    background-position: center;
+}
+
+
+.bg-feedGrupo {
+    background-image: url('../uploads/1fondo1.jpg'); /* Asegúrate de que la ruta sea relativa */
+    background-size: cover;
+    background-position: center;
+}
+ .bg-listaGrupo {
+    background-image: url('../uploads/1fondo2.jpg'); /* Asegúrate de que la ruta sea relativa */
+    background-size: cover;
+    background-position: center;
+}
+.bg-retos {
+    background-image: url('../uploads/1fondo2.jpg'); /* Asegúrate de que la ruta sea relativa */
+    background-size: cover;
+    background-position: center;
+}

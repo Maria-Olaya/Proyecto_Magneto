@@ -1,0 +1,115 @@
+
+/*777777777777777777777777777777777777777777777777777777777777*/
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container1 {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.perfil-header {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px; /* Reduce el padding para hacer el contenedor más pequeño */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    height: 150px; /* Ajusta la altura a una franja pequeña */
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.perfil-header img {
+    width: 70px; /* Reduce el tamaño de la imagen */
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.perfil-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente la información */
+}
+
+.perfil-info h2 {
+    margin: 0;
+    font-size: 18px; /* Ajusta el tamaño de la fuente */
+}
+
+.perfil-info p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 14px; /* Ajusta el tamaño del texto */
+}
+
+.perfil-stats {
+    position: relative; /* Necesario para que la lista se posicione correctamente */
+    display: flex;
+    margin-top: 10px;
+    justify-content: center; /* Centra los botones dentro del contenedor */
+}
+
+.perfil-stats div {
+    margin-right: 20px;
+}
+
+.perfil-stats button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px; /* Ajusta el tamaño del botón */
+}
+
+.perfil-stats button:hover {
+    background-color: #0056b3;
+}
+
+/* Lista flotante de seguidores/seguidos */
+.lista-flotante {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    max-height: 300px; /* Limita la altura máxima */
+    overflow-y: auto; /* Agrega desplazamiento vertical */
+    z-index: 1000;
+}
+
+
+.lista-flotante ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-flotante ul li {
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.lista-flotante ul li:last-child {
+    border-bottom: none;
+}
+
+.lista-flotante ul li:hover {
+    background-color: #f9f9f9;
+}

@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/comentariosybotones.css">
+    <link rel="stylesheet" href="styles/Estilosgenerales.css">
+    <link rel="stylesheet" href="styles/Historias.css">
+    <link rel="stylesheet" href="styles/navegacion.css">
+    <link rel="stylesheet" href="styles/publicaciones.css">
+    
+    <title>M TalentSync</title>
+¿
+</head>
+
+<body class="bg-feed">
+
+    <nav>
+        <div class="logo">
+            <h1>M TalentSync</h1>
+        </div>
+        <a href="feed.html">Feed</a> <!-- Feed con publicaciones generales -->
+        <a href="retos.html">Retos</a>    <!-- Feed con publicaciones de retos -->
+        <a href="ListaGrupos.html">Grupos</a>  <!-- Feed con publicaciones de grupos -->
+        <a href="chat.html">Chat</a>
+        <a href="perfil.html">Perfil</a> <!-- Enlace al perfil con ID para manipulación -->
+        <a href="nuevaPublicacion.html">Nueva Publicación</a> 
+        <a href="https://www.magneto365.com/es">servicio de empleo</a>  
+    </nav>
+    
+   
+    
+<div class="container">
+    <div class="feed">
+        <h2>Publicaciones</h2>
+        <div id="lista-publicaciones"></div>
+    </div>
+
+    <div class="historias-container">
+        <div class="historias" id="historias">
+            <!-- Historias cargadas dinámicamente aquí -->
+        </div>
+        <div class="agregar-publicacion" onclick="agregarHistoria()">+</div>
+    </div>
+
+</div>
+<div class="pantalla-completa" id="pantallaCompleta" onclick="cerrarHistoria()">
+    <div class="historia-completa">
+        <img src="" alt="" id="perfilCompleto" class="usuario-perfil-completo">
+        <span class="nombre-usuario-completo" id="nombreUsuarioCompleto"></span>
+        <div class="texto-completo" id="textoCompleto"></div>
+        <div class="navegacion">
+            <!-- Puedes agregar botones para navegar entre historias aquí -->
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script>
+    window.tipoPublicacion = 'general'; // Cambia 'reto' por el tipo que desees usar
+</script>
+
+<!-- Importar archivos JavaScript --
+<script src="js/publicaciones.js"></script>-->
+<script src="js/reacciones.js"></script>
+<script src="js/comentarios.js"></script>
+<script src="js/historias.js"></script>
+<script type="module" src="js/cargarPublicaciones.js"></script>
+
+<script>
+    // Llamada inicial para cargar publicaciones
+    cargarPublicaciones();
+</script>
+
+<script>
+    // Llamada inicial para cargar publicaciones
+    cargarPublicaciones();
+
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            window.location.reload(); // Recargar la página al volver del historial
+        }
+    });
+</script>
+
+     
+<script>
+    const socket = new WebSocket('ws://localhost:3000');
+
+    socket.onopen = () => {
+        console.log('Conectado al servidor WebSocket');
+    };
+
+    socket.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        if (data.action === 'newPost') {
+            agregarPublicacionAlGeneral(data.post);
+        }
+    };
+
+    function agregarPublicacionAlGeneral(post) {
+        const lista = document.getElementById('lista-publicaciones');
+        const div = document.createElement('div');
+        div.className = 'publicacion';
+        div.innerHTML = `
+            <div class="perfil">
+                <img src="${post.foto_perfil}" alt="Foto de perfil" class="foto-perfil">
+                <strong>${post.nombre_usuario}</strong>
+            </div>
+            <p class="contenido">${post.contenido}</p>
+            ${post.archivo ? `<div class="archivo">${renderArchivo(post.archivo)}</div>` : ''}
+            <p><small>Publicado el: ${new Date(post.fecha_publicacion).toLocaleString()}</small></p>
+        `;
+        lista.prepend(div);
+    }
+
+</script>
+
+
+</body>
+</html>

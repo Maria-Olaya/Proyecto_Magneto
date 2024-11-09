@@ -1,0 +1,87 @@
+
+/*comentarios*/
+/* Estilos para la sección de comentarios */
+.comentarios {
+    padding-top: 15px;
+    overflow-wrap: break-word; /* Permite que las palabras largas se dividan */
+    word-wrap: break-word; /* Para compatibilidad con navegadores más antiguos */
+}
+
+/* Lista de comentarios */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Elementos de comentarios */
+li {
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 10px;
+    position: relative;
+    overflow-wrap: break-word; /* Permite que las palabras largas se dividan */
+    word-wrap: break-word; /* Para compatibilidad con navegadores más antiguos */
+}
+
+/* Nombre de usuario */
+.usuario {
+    font-weight: bold;
+    color: #2980b9;
+}
+
+/* Estilo para el contenedor de comentarios */
+.comentarios-container {
+    max-height: 200px; /* Establece una altura máxima */
+    overflow-y: auto;  /* Habilita el desplazamiento vertical */
+    border: 1px solid #ccc; /* Opcional: añade un borde */
+    padding: 10px; /* Espaciado interno */
+    background-color: #f9f9f9; /* Opcional: color de fondo */
+}
+
+/* Fecha del comentario */
+.fecha {
+    font-size: 0.8em;
+    color: #7f8c8d;
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+}
+
+/* Estilos para el formulario de nuevo comentario */
+form {
+    display: flex;
+    margin-top: 10px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #2980b9;
+    outline: none;
+}
+
+button[type="submit"] {
+    flex-shrink: 0; /* No permite que el botón se reduzca de tamaño */
+}
+/* Botón para mostrar/ocultar comentarios */
+button {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1a6f99;
+}
